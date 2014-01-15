@@ -7,7 +7,7 @@ http://planetaryjs.com/
 
 Demo
 ------------
-http://darul-demo.herokuapp.com/globe-twitter
+http://darul-demo.herokuapp.com/globe-twitter ( not angularized yet, coming soon )
 
 Installation
 ------------
