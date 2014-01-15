@@ -1,0 +1,35 @@
+{
+  "name": "ng-planetaryjs",
+  "description": "AngularJS directive for sublime PlanetaryJs integration",
+  "version": "0.0.1",
+  "author": {
+    "name": "Julien Valéry",
+    "email": "darul75@gmail.com"
+  },  
+  "homepage": "https://github.com/darul75/ng-planetaryjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darul75/ng-planetaryjs.git"
+  },
+  "keywords": [    
+    "planetaryjs",
+    "angularjs",
+    "d3",
+    "d3js",
+    "globe"
+  ],  
+  "bugs": {
+    "url": "https://github.com/darul75/ng-planetaryjs/issues"
+  },
+  "dependencies": {     
+    "express": "3.4.4",
+    "jade": "0.35.0",
+    "topojson": "1.4.5"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-bower-task": "~0.3.4"
+  }
+}

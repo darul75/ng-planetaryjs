@@ -1,0 +1,68 @@
+!!!
+doctype 5
+html(xmlns='http://www.w3.org/1999/xhtml', xmlns:og='http://ogp.me/ns#', xmlns:fb='http://ogp.me/ns/fb#')
+ head    
+  link(rel='stylesheet',href='/stylesheets/stylesheet.css')  
+  script(type='text/javascript', src='javascripts/bower_components/angular/angular.js')
+  script(type="text/javascript", src="javascripts/ng-planetaryjs.js")
+  script(type='text/javascript', src='javascripts/d3.min.js')
+  script(type='text/javascript', src='javascripts/topojson.v1.min.js')
+  script(type="text/javascript", src="javascripts/planetaryjs.js")
+       
+  title Angular PlanetaryJS Directive   
+  body
+
+    style.
+      #container { position: relative; }
+      #imageView { border: 1px solid #000; }
+      #imageTemp { position: absolute; top: 1px; left: 1px; }    
+
+    div.wrapper(ng-app="myApp", ng-controller="ctrl")
+      <!-- HEADER -->
+      div.outer(id="header_wrap")
+        header
+          h1(id="project_title") Angular PlanetaryJS Directive           
+        <!-- MAIN CONTENT -->
+      div.outer(id="main_content_wrap")
+        section.inner(id="main_content")
+          h3
+            a(name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages")
+              span.octicon.octicon-link
+              
+          script.
+            var app = angular.module('myApp', ['ngPlanetaryJs']);
+            function ctrl($scope, $filter) {      
+              $scope.options = {
+                plugins: {
+                  autorotate: {
+                    degree : 2
+                  },
+                  earth: {
+                    topojson: { file:   'world-110m.json' },
+                    oceans:   { fill:   '#C59824' },            
+                    land:     { fill:   '#2B4F81' },
+                    borders:  { stroke: '#eeeeee' , lineWidth: 0.3}
+                  },
+                  pings: {
+                    color: 'yellow', ttl: 5000, angle: 10
+                  },
+                  zoom: { scaleExtent: [100, 300] }
+                }
+              }
+            }
+
+          canvas(planetaryjs options='options' width='1000' height='1000')
+
+          div
+            script(data-gittip-username="darul75" data-gittip-widget="button" src="//gttp.co/v1.js")          
+
+      <!-- FOOTER  -->
+      div(id="footer_wrap" class="outer")
+        footer.inner
+          p(class="copyright") maintained by 
+            a(href="https://github.com/darul75") darul75
+          p Published with 
+            a(href="http://pages.github.com") GitHub Pages — Theme by 
+            a(href="https://github.com/orderedlist") orderedlist
+   
+
