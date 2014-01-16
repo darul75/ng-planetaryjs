@@ -1,7 +1,6 @@
 var path = require('path');
 var express = require('express');
 var fs = require('fs');
-var topojson = require('topojson');
 
 var app = express();
 
