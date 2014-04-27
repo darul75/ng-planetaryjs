@@ -1,12 +1,14 @@
-/*! Planetary.js v1.0.1
+/*! Planetary.js v1.1.1
  *  Copyright (c) 2013 Brandon Tilley
  *
  *  Released under the MIT license
- *  Date: 2014-01-02T17:05:08.541Z
+ *  Date: 2014-02-03T08:15:06.913Z
  */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['d3', 'topojson'], factory);
+    define(['d3', 'topojson'], function(d3, topojson) {
+      return (root.planetaryjs = factory(d3, topojson));
+    });
   } else if (typeof exports === 'object') {
     module.exports = factory(require('d3'), require('topojson'));
   } else {
@@ -21,6 +23,10 @@
 
   var doDrawLoop = function(planet, canvas, hooks) {
     d3.timer(function() {
+      if (planet.stopped) {
+        return true;
+      }
+
       planet.context.clearRect(0, 0, canvas.width, canvas.height);
       for (var i = 0; i < hooks.onDraw.length; i++) {
         hooks.onDraw[i]();
@@ -76,11 +82,14 @@
   };
 
   var startDraw = function(planet, canvas, localPlugins, hooks) {
-    initPlugins(planet, localPlugins);
-
     planet.canvas = canvas;
     planet.context = canvas.getContext('2d');
 
+    if (planet.stopped !== true) {
+      initPlugins(planet, localPlugins);
+    }
+
+    planet.stopped = false;
     runOnInitHooks(planet, canvas, hooks);
   };
 
@@ -100,7 +109,8 @@
       var localPlugins = [];
       var hooks = {
         onInit: [],
-        onDraw: []
+        onDraw: [],
+        onStop: []
       };
 
       var planet = {
@@ -118,8 +128,19 @@
           hooks.onDraw.push(fn);
         },
 
+        onStop: function(fn) {
+          hooks.onStop.push(fn);
+        },
+
         loadPlugin: function(plugin) {
           localPlugins.push(plugin);
+        },
+
+        stop: function() {
+          planet.stopped = true;
+          for (var i = 0; i < hooks.onStop.length; i++) {
+            hooks.onStop[i](planet);
+          }
         },
 
         withSavedContext: function(fn) {
@@ -134,8 +155,7 @@
       };
 
       planet.projection = d3.geo.orthographic()
-        .clipAngle(90)
-        .precision(0);
+        .clipAngle(90);
       planet.path = d3.geo.path().projection(planet.projection);
 
       return planet;
