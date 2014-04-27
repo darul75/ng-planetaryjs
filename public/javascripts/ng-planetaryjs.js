@@ -58,6 +58,10 @@
 							globe.plugins.pings.add(lng, lat, config);
 					};
 					
+					element.on('$destroy', function() {
+						globe.stop();
+					});
+					
 					function autorotate(degPerSec) {
 		                // Planetary.js plugins are functions that take a `planet` instance
 		                // as an argument...
