@@ -34,7 +34,7 @@ to the list above, you should add:
 <script type="text/javascript" src="ng-planetaryjs.min.js"></script>
 ```
 
-Then, inject `ngPrettyJson` in your application module:
+Then, inject `ngPlanetaryJs` in your application module:
 
 ```javascript
 angular.module('myApp', ['ngPlanetaryJs']);
