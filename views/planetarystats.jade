@@ -62,9 +62,19 @@ html(xmlns='http://www.w3.org/1999/xhtml', xmlns:og='http://ogp.me/ns#', xmlns:f
 
                 $scope.$broadcast('add-ping', {lng:lng, lat:lat, config:{color: 'yellow', ttl: 5000, angle: 10}});
               };
+
+              $scope.stop = function() {                
+                $scope.$broadcast('planet-stop', {});
+              };
+
+              $scope.start = function() {                
+                $scope.$broadcast('planet-start', {});
+              };
             }
 
-          button(ng-click='addPing()', type='button') Ping  
+          button(ng-click='addPing()', type='button') Ping
+          button(ng-click='stop()', type='button') Stop
+          button(ng-click='start()', type='button') Start
 
           canvas(planetaryjs options='options' width='1000' height='1000')
 

@@ -51,16 +51,38 @@
 					}
 
 					// Draw that globe!
-					globe.draw(canvas);								   				   										
+					var draw = function() {
+						globe.draw(canvas);		
+					};
+
+					var drawStop = function() {
+						globe.stop();		
+					};
+
+					draw();						   				   															
 					
 					var addPings = function(lng, lat, config) {
 						if (globe.plugins.pings)
 							globe.plugins.pings.add(lng, lat, config);
 					};
 
+					var stop;
+
 					// Listener
 					scope.$on('add-ping', function(event, msg){
    						addPings(msg.lng, msg.lat, msg.config);
+ 					});
+ 					scope.$on('planet-stop', function(event, msg){
+ 						if (!stop) {
+   							drawStop();
+   							stop = !stop;
+   						} 						
+ 					});
+ 					scope.$on('planet-start', function(event, msg){
+ 						if (stop) {
+   							draw();
+   							stop = !stop;
+   						}
  					});
 					
 					function autorotate(degPerSec) {
