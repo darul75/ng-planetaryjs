@@ -51,12 +51,17 @@
 					}
 
 					// Draw that globe!
-					globe.draw(canvas);			   				   										
+					globe.draw(canvas);								   				   										
 					
 					var addPings = function(lng, lat, config) {
 						if (globe.plugins.pings)
 							globe.plugins.pings.add(lng, lat, config);
 					};
+
+					// Listener
+					scope.$on('add-ping', function(event, msg){
+   						addPings(msg.lng, msg.lat, msg.config);
+ 					});
 					
 					function autorotate(degPerSec) {
 		                // Planetary.js plugins are functions that take a `planet` instance

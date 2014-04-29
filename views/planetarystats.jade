@@ -48,8 +48,23 @@ html(xmlns='http://www.w3.org/1999/xhtml', xmlns:og='http://ogp.me/ns#', xmlns:f
                   },
                   zoom: { scaleExtent: [100, 300] }
                 }
+              };
+
+              // http://stackoverflow.com/questions/6878761/javascript-how-to-create-random-longitude-and-latitudes  
+              function getRandomInRange(from, to, fixed) {
+                  return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
+                  // .toFixed() returns string, so ' * 1' is a trick to convert to number
               }
+
+              $scope.addPing = function() {
+                var lng = getRandomInRange(-180, 180, 3);
+                var lat = getRandomInRange(-90, 90, 3);
+
+                $scope.$broadcast('add-ping', {lng:lng, lat:lat, config:{color: 'yellow', ttl: 5000, angle: 10}});
+              };
             }
+
+          button(ng-click='addPing()', type='button') Ping  
 
           canvas(planetaryjs options='options' width='1000' height='1000')
 
