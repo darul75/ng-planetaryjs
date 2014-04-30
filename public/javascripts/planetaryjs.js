@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 /*! Planetary.js v1.1.1
-=======
-/*! Planetary.js v1.1.0
->>>>>>> acbd101083d1fc8e5ef8dde62241968b998b6275
  *  Copyright (c) 2013 Brandon Tilley
  *
  *  Released under the MIT license
@@ -11,7 +7,7 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['d3', 'topojson'], function(d3, topojson) {
-      return (root.planetaryjs = factory(d3, topojson));
+     return (root.planetaryjs = factory(d3, topojson));
     });
   } else if (typeof exports === 'object') {
     module.exports = factory(require('d3'), require('topojson'));
@@ -412,3 +408,4 @@
 
   return planetaryjs;
 }));
+
