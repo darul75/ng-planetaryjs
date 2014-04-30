@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*! Planetary.js v1.1.1
+=======
+/*! Planetary.js v1.1.0
+>>>>>>> acbd101083d1fc8e5ef8dde62241968b998b6275
  *  Copyright (c) 2013 Brandon Tilley
  *
  *  Released under the MIT license

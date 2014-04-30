@@ -9,16 +9,6 @@ Demo
 ------------
 http://darul-demo.herokuapp.com/globe-twitter ( not angularized yet, coming soon )
 
-Installation
-------------
-
-Using npm:
-
-```
-npm install ng-planetaryjs
-```
-
-
 How to use it
 -------------
 
@@ -34,7 +24,7 @@ to the list above, you should add:
 <script type="text/javascript" src="ng-planetaryjs.min.js"></script>
 ```
 
-Then, inject `ngPrettyJson` in your application module:
+Then, inject `ngPlanetaryJs` in your application module:
 
 ```javascript
 angular.module('myApp', ['ngPlanetaryJs']);
@@ -66,11 +56,36 @@ canvas(planetaryjs options='options' width='1000' height='1000')
     zoom: { scaleExtent: [100, 300] }
   }
 }
+
+
+// API
+
+// add ping
+$scope.$broadcast('add-ping', {lng:lng, lat:lat, config:{color: 'yellow', ttl: 5000, angle: 10}});
+
+// stop, start rendering animation
+$scope.$broadcast('planet-stop', {});
+$scope.$broadcast('planet-start', {});
 ```
 
 ### Options
 
 * `options`: planetaryjs plugins options, available here http://planetaryjs.com/documentation/
+
+Installation
+------------
+
+Using npm:
+
+```
+npm install ng-planetaryjs
+```
+
+Using bower:
+
+```
+bower install ng-planetaryjs
+```
 
 ### Install
 
