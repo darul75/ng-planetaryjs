@@ -9,16 +9,6 @@ Demo
 ------------
 http://darul-demo.herokuapp.com/globe-twitter ( not angularized yet, coming soon )
 
-Installation
-------------
-
-Using npm:
-
-```
-npm install ng-planetaryjs
-```
-
-
 How to use it
 -------------
 
@@ -81,6 +71,21 @@ $scope.$broadcast('planet-start', {});
 ### Options
 
 * `options`: planetaryjs plugins options, available here http://planetaryjs.com/documentation/
+
+Installation
+------------
+
+Using npm:
+
+```
+npm install ng-planetaryjs
+```
+
+Using bower:
+
+```
+bower install ng-planetaryjs
+```
 
 ### Install
 
