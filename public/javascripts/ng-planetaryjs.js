@@ -16,7 +16,6 @@
 		}])
 
 		.directive('planetaryjs', ['service', function (service) {
-//.directive('planetaryjs', [function () {
 
 			return {
 				restrict : 'AE',
@@ -67,14 +66,9 @@
 							globe.plugins.pings.add(lng, lat, config);
 					};
 
-//element.on('mousedown', function(event) {
-// addPings(12, 30);
-//});
-
-element.on('$destroy', function() {
- //globe.stop();
- drawStop();
-});
+					element.on('$destroy', function() {
+						drawStop();
+					});
 
 					// Listener
 					scope.$on('add-ping', function(event, msg){
