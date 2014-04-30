@@ -66,6 +66,16 @@ canvas(planetaryjs options='options' width='1000' height='1000')
     zoom: { scaleExtent: [100, 300] }
   }
 }
+
+
+// API
+
+// add ping
+$scope.$broadcast('add-ping', {lng:lng, lat:lat, config:{color: 'yellow', ttl: 5000, angle: 10}});
+
+// stop, start rendering animation
+$scope.$broadcast('planet-stop', {});
+$scope.$broadcast('planet-start’, {});
 ```
 
 ### Options
