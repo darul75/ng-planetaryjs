@@ -1,5 +1,7 @@
-(function (angular) {
+(function (define, angular) {
 'use strict';
+
+ define(['planetaryjs'], function () {
 	angular.module('ngPlanetaryJs', [])
 
 		.service('service', ['$http', function (http) {			
@@ -137,4 +139,5 @@
 			}
 		};
 	}]);
-})(angular);
+ });
+})(define, angular);
