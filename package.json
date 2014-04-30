@@ -1,7 +1,7 @@
 {
   "name": "ng-planetaryjs",
   "description": "AngularJS directive for sublime PlanetaryJs integration",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": {
     "name": "Julien Valéry",
     "email": "darul75@gmail.com"

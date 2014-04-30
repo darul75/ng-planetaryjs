@@ -1,23 +1,8 @@
-(function (define, angular) {
+(function (angular) {
 'use strict';
-
- define(['planetaryjs'], function () {
-	angular.module('ngPlanetaryJs', [])
-
-		.service('service', ['$http', function (http) {			
-			return {
-				asyncDoSomething: function(useragent) {
-					var apiRoute = '/api';
-					var promise = http.get(apiRoute).then(function (response) {	
-						return response;
-					});
-					return promise;
-				}			
-
-			};
-		}])
-
-		.directive('planetaryjs', ['service', function (service) {
+ 
+	angular.module('ngPlanetaryJs', [])		
+		.directive('planetaryjs', [function (service) {
 
 			return {
 				restrict : 'AE',
@@ -119,25 +104,8 @@
 							}
 						});
 					};
-				};
-
-				scope.results = [];
-				    				    				                       
-				scope.fetchIt = function(type, result) {
-					    
-                     			//ngProgress.start();
-
-					useragent.asyncFetchAgents( type , scope.results).then(function(d) {
-						scope.results = [];
-						for (var i=0;i<d.data.length;i++) {
-							scope.results.push({id:i, agent: d.data[i]});
-						}
-						//ngProgress.stop();
-						//timeout(ngProgress.complete(), 800);
-					});
-				};							
+				};								   				    				                      				
 			}
 		};
 	}]);
- });
-})(define, angular);
+ })(angular);
