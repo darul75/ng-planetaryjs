@@ -75,7 +75,7 @@ $scope.$broadcast('add-ping', {lng:lng, lat:lat, config:{color: 'yellow', ttl: 5
 
 // stop, start rendering animation
 $scope.$broadcast('planet-stop', {});
-$scope.$broadcast('planet-start’, {});
+$scope.$broadcast('planet-start', {});
 ```
 
 ### Options
