@@ -66,8 +66,11 @@
 							globe.plugins.pings.add(lng, lat, config);
 					};
 
+					var stop;
+
 					element.on('$destroy', function() {
 						drawStop();
+						stop= true;
 					});
 
 					// Listener
