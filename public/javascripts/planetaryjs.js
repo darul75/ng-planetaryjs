@@ -408,4 +408,3 @@
 
   return planetaryjs;
 }));
-
